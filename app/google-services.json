@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "90086256701",
+    "firebase_url": "https://iosmidterm2020.firebaseio.com",
+    "project_id": "iosmidterm2020",
+    "storage_bucket": "iosmidterm2020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:90086256701:android:d5e86a0e5e2a51bca13a54",
+        "android_client_info": {
+          "package_name": "com.lambton.c0777245_w2020_mad3125_fp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "90086256701-c4jq1u8clgb0g14ol7n13447j019mjj0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lambton.c0777245_w2020_mad3125_fp",
+            "certificate_hash": "32f8cefb69353b38eeb6d1bc9d4e739972a75cb4"
+          }
+        },
+        {
+          "client_id": "90086256701-tsd22d51g674g8mqjgueb61hi7cj57j1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLS7x956uNNLlvIumGk067ofedilZejQI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "90086256701-tsd22d51g674g8mqjgueb61hi7cj57j1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "90086256701-khvrneqjhta6kbs691ekicocs3sf7av2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.lambton.C0777245-MidTerm-MAD3115W2020"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
