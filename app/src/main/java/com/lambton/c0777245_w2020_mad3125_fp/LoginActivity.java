@@ -31,7 +31,7 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity {
 
     private ProgressBar phoneNumberAuthProgressBar;
     private TextView mobileNumber;
@@ -186,16 +186,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 });
     }
 
-    @Override
-    public void onClick(View v) {
-//        switch (v.getId()) {
-//            case R.id.sign_in_button:
-////                signIn();
-//                break;
-//            // ...
-//        }
-    }
-
+    
     public void googleSignInButton(View view){
         Toast.makeText(LoginActivity.this, "Button Clicked", Toast.LENGTH_SHORT).show();
 
