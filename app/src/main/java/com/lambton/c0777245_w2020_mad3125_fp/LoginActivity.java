@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private ProgressBar phoneNumberAuthProgressBar;
     private TextView status;
+    private ImageButton customerListBtn;
     private GoogleSignInClient mGoogleSignInClient;
     private static final int RC_SIGN_IN = 9001;
     private static final String TAG = "GoogleActivity";
@@ -59,9 +61,11 @@ public class LoginActivity extends AppCompatActivity {
     private void initials(){
         phoneNumberAuthProgressBar = findViewById(R.id.progressBar);
         status = findViewById(R.id.enterStatusTextView);
-        status.setEnabled(false);
+        customerListBtn = findViewById(R.id.customerListButton);
 
+        status.setEnabled(false);
         phoneNumberAuthProgressBar.setVisibility(View.INVISIBLE);
+        customerListBtn.setVisibility(View.INVISIBLE);
 
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
@@ -115,8 +119,16 @@ public class LoginActivity extends AppCompatActivity {
         if (user != null) {
             status.setText(getString(R.string.google_status_fmt, user.getEmail()));
             phoneNumberAuthProgressBar.setVisibility(View.INVISIBLE);
+            customerListBtn.setVisibility(View.VISIBLE);
+
+            user.
+
         } else {
             status.setText(R.string.signed_out);
         }
+    }
+    
+    public void customerListButtonOnClick(View view){
+        Toast.makeText(LoginActivity.this, "Button pressed", Toast.LENGTH_SHORT).show();
     }
 }
