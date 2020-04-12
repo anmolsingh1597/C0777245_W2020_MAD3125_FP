@@ -11,11 +11,11 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(String customerId, String firstName, String lastName, String fullName, String emailId, String mobile) {
+    public Customer(String customerId, String firstName, String lastName, String emailId, String mobile) {
         this.customerId = customerId;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.fullName = fullName;
+        this.fullName = firstName + " " + lastName;
         this.emailId = emailId;
         this.mobile = mobile;
     }
