@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void validateMobileNumber(View view){
 
-        String mobile = mobileNumber.getText().toString().trim();
+        String mobile = "+1" + mobileNumber.getText().toString().trim();
         if(mobile.isEmpty() || mobile.length() < 10){
             mobileNumber.setError("Enter a valid mobile");
             mobileNumber.requestFocus();
@@ -63,6 +63,7 @@ public class LoginActivity extends AppCompatActivity {
             phoneNumberAuthProgressBar.setVisibility(View.VISIBLE);
             mobileNumberAuthLayout.setVisibility(View.VISIBLE);
             sendVerificationCode(mobile);
+//            Toast.makeText(LoginActivity.this, "Method Called: Send Verification code for " + mobile, Toast.LENGTH_SHORT).show();
 //            verifyVerificationCode(code);
         }
     }
@@ -70,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void sendVerificationCode(String mobile) {
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                "+1" + mobile,
+                mobile,
                 10,
                 TimeUnit.SECONDS,
                 TaskExecutors.MAIN_THREAD,
@@ -83,7 +84,6 @@ public class LoginActivity extends AppCompatActivity {
         public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
             //Getting the code sent by SMS
             String code = phoneAuthCredential.getSmsCode();
-
             //sometime the code is not detected automatically
             //in this case the code will be null
             //so user has to manually enter the code
@@ -111,7 +111,6 @@ public class LoginActivity extends AppCompatActivity {
     private void verifyVerificationCode(String otp) {
         //creating the credential
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, otp);
-
         //signing the user
         signInWithPhoneAuthCredential(credential);
     }
