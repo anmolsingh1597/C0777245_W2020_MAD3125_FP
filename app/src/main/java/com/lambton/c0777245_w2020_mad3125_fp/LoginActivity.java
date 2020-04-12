@@ -1,6 +1,5 @@
 package com.lambton.c0777245_w2020_mad3125_fp;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,21 +15,11 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.gms.tasks.TaskExecutors;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.textfield.TextInputLayout;
-import com.google.firebase.FirebaseException;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.PhoneAuthCredential;
-import com.google.firebase.auth.PhoneAuthProvider;
+import com.lambton.c0777245_w2020_mad3125_fp.models.GoogleUser;
 
-import java.util.concurrent.TimeUnit;
+import java.io.Serializable;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -40,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     private GoogleSignInClient mGoogleSignInClient;
     private static final int RC_SIGN_IN = 9001;
     private static final String TAG = "GoogleActivity";
+    GoogleUser googleUser;
 
 
     @Override
@@ -119,16 +109,18 @@ public class LoginActivity extends AppCompatActivity {
         if (user != null) {
             status.setText(getString(R.string.google_status_fmt, user.getEmail()));
             phoneNumberAuthProgressBar.setVisibility(View.INVISIBLE);
+            googleUser = new GoogleUser(user.getGivenName(), user.getFamilyName(), user.getEmail());
             customerListBtn.setVisibility(View.VISIBLE);
-
-            user.
-
         } else {
             status.setText(R.string.signed_out);
         }
     }
     
     public void customerListButtonOnClick(View view){
-        Toast.makeText(LoginActivity.this, "Button pressed", Toast.LENGTH_SHORT).show();
+        Bundle googleUserBundle = new Bundle();
+        googleUserBundle.putSerializable("googleUserBundle",(Serializable)googleUser);
+        Intent customerListIntent = new Intent(LoginActivity.this,CustomerListActivity.class);
+        customerListIntent.putExtra("googleUserExtra",googleUserBundle);
+        startActivity(customerListIntent);
     }
 }
