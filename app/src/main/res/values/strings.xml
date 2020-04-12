@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">C0777245_W2020_MAD3125_FP</string>
-    <string name="mobile_number">Mobile Number</string>
     <string name="otp">OTP</string>
     <string name="validate">Sign in with Google</string>
     <array name="gender">
@@ -14,5 +13,6 @@
     <string name="google_status_fmt">Google User: %s</string>
     <string name="google_title_text">Google Sign In</string>
     <string name="signed_out">Signed Out</string>
+    <string name="status">Status</string>
 
 </resources>

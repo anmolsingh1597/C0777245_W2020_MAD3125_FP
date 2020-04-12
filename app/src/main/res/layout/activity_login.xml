@@ -20,12 +20,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/mobileNumberTextView"
+        android:id="@+id/statusTextView"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginTop="212dp"
-        android:hint="@string/mobile_number"
+        android:hint="@string/status"
         android:textColorHint="@color/green_300"
         app:boxStrokeColor="@color/green_300"
         app:boxStrokeErrorColor="@color/Red"
@@ -38,40 +38,9 @@
         ​
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/enterMobileNumberTextView"
+            android:id="@+id/enterStatusTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-            android:textColor="@color/blue_grey_500"
-            android:textSize="12sp"
-            app:textInputLayoutFocusedRectEnabled="false" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/mobileAuthTextView"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:hint="@string/otp"
-        android:textColorHint="@color/green_300"
-        app:boxStrokeColor="@color/green_300"
-        app:boxStrokeErrorColor="@color/Red"
-        app:hintTextColor="@color/green_300"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mobileNumberTextView"
-        app:layout_constraintVertical_bias="0.089"
-        app:suffixTextColor="@color/Red">
-        ​
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/enterMobileAuthTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:maxLength="10"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
             android:textColor="@color/blue_grey_500"
             android:textSize="12sp"
@@ -88,21 +57,9 @@
         android:textColor="@color/green_300"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mobileAuthTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/statusTextView"
+        app:layout_constraintVertical_bias="0.089" />
 
-    <com.google.android.gms.common.SignInButton
-
-        android:id="@+id/sign_in_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="142dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="142dp"
-        android:layout_marginBottom="27dp"
-        android:onClick="googleSignInButton"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mobileAuthTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
