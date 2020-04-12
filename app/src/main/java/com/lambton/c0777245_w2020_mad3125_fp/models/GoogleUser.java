@@ -11,7 +11,7 @@ public class GoogleUser implements Serializable {
     public GoogleUser(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.fullName = firstName + " " + lastName;
+        this.fullName = lastName.toUpperCase() + " " + firstName;
         this.email = email;
     }
 
