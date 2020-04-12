@@ -18,4 +18,78 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/mobileNumberTextView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="212dp"
+        android:hint="@string/mobile_number"
+        android:textColorHint="@color/green_300"
+        app:boxStrokeColor="@color/green_300"
+        app:boxStrokeErrorColor="@color/Red"
+        app:hintTextColor="@color/green_300"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar"
+        app:suffixTextColor="@color/Red">
+        ​
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/enterMobileNumberTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="10"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/blue_grey_500"
+            android:textSize="12sp"
+            app:textInputLayoutFocusedRectEnabled="false" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/mobileAuthTextView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:hint="@string/otp"
+        android:textColorHint="@color/green_300"
+        app:boxStrokeColor="@color/green_300"
+        app:boxStrokeErrorColor="@color/Red"
+        app:hintTextColor="@color/green_300"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mobileNumberTextView"
+        app:layout_constraintVertical_bias="0.089"
+        app:suffixTextColor="@color/Red">
+        ​
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/enterMobileAuthTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="10"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/blue_grey_500"
+            android:textSize="12sp"
+            app:textInputLayoutFocusedRectEnabled="false" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/button2"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="validateMobileNumber"
+        android:text="@string/validate"
+        android:textColor="@color/green_300"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mobileAuthTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

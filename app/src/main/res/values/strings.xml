@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">C0777245_W2020_MAD3125_FP</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="otp">OTP</string>
+    <string name="validate">Validate</string>
     <array name="gender">
         <item>Male</item>
         <item>Female</item>
