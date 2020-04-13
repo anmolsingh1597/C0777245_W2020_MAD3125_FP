@@ -47,8 +47,6 @@ public class AddNewCustomerActivity extends AppCompatActivity {
     }
 
   public void saveButtonOnClicked(View view){
-      Toast.makeText(AddNewCustomerActivity.this, "Save", Toast.LENGTH_SHORT).show();
-
           id = idText.getText().toString();
           firstName = firstNameText.getText().toString();
           lastName = lastNameText.getText().toString();
@@ -73,7 +71,11 @@ public class AddNewCustomerActivity extends AppCompatActivity {
           }
   }
   public void clearButtonOnClicked(View view){
-      Toast.makeText(AddNewCustomerActivity.this, "Clear", Toast.LENGTH_SHORT).show();
+      idText.setText("");
+      firstNameText.setText("");
+      lastNameText.setText("");
+      emailText.setText("");
+      mobileText.setText("");
   }
 
   public void savingData(){
