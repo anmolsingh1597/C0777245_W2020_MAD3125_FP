@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +36,7 @@ public class CustomerListActivity extends AppCompatActivity {
     private RecyclerView customerListView;
     private ArrayList<Customer> customerList;
     private CustomersAdapter customersAdapter;
+    private ProgressBar custListProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,7 @@ public class CustomerListActivity extends AppCompatActivity {
     public void initials(){
         name = findViewById(R.id.customerListTextView1);
         customerListView = findViewById(R.id.customerListRV);
+        custListProgressBar = findViewById(R.id.customerListProgressBar);
         populateCustomers();
         fetchUser();
 
@@ -78,6 +82,7 @@ public class CustomerListActivity extends AppCompatActivity {
                 customersAdapter = new CustomersAdapter(customerList);
                 customerListView.setLayoutManager(thisLayoutManager);
                 customerListView.setAdapter(customersAdapter);
+                custListProgressBar.setVisibility(View.GONE);
             }
 
             @Override
