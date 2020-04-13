@@ -1,5 +1,6 @@
 package com.lambton.c0777245_w2020_mad3125_fp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -7,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -94,5 +97,30 @@ public class CustomerListActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.customer_list_menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.newCustomerMenuItem:
+                Intent newCustomer = new Intent(CustomerListActivity.this,AddNewCustomerActivity.class);
+                startActivity(newCustomer);
+                break;
+            case R.id.logoutMenuItem:
+                Intent logout = new Intent(CustomerListActivity.this,LoginActivity.class);
+                startActivity(logout);
+                finish();
+                break;
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
