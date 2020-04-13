@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -117,13 +119,42 @@ public class CustomerListActivity extends AppCompatActivity {
                 startActivity(newCustomer);
                 break;
             case R.id.logoutMenuItem:
-                Intent logout = new Intent(CustomerListActivity.this,LoginActivity.class);
-                startActivity(logout);
-                finish();
+                backAlert();
                 break;
 
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        backAlert();
+    }
+
+    public void backAlert(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Alert!!");
+        builder.setIcon(R.drawable.ic_launcher_foreground);
+        builder.setMessage("Are you Sure");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Logout", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent logout = new Intent(CustomerListActivity.this,LoginActivity.class);
+                startActivity(logout);
+                finish();
+                dialog.dismiss();
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog homeAlert = builder.create();
+        homeAlert.show();
     }
 }
