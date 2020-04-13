@@ -24,20 +24,17 @@ import java.util.HashMap;
 
 public class CustomerListActivity extends AppCompatActivity {
 
+    RecyclerView.LayoutManager thisLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,
+            false);
+    Bundle fetchedBundle;
+    GoogleUser fetchedUser;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("Users");
     private TextView name;
     private RecyclerView customerListView;
     private ArrayList<Customer> customerList;
     private CustomersAdapter customersAdapter;
-    RecyclerView.LayoutManager thisLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,
-            false);
 
-
-    Bundle fetchedBundle;
-    GoogleUser fetchedUser;
-
-
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("Users");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,7 +79,7 @@ public class CustomerListActivity extends AppCompatActivity {
                 HashMap<String, String>[] usersMap;
                 usersMap = value.values().toArray(new HashMap[value.size()]);
 
-                                for (int i = 0; i < usersMap.length; i++) {
+                for (int i = 0; i < usersMap.length; i++) {
                 customerList.add(new Customer(usersMap[i].get("id"), usersMap[i].get("firstName"), usersMap[i].get("lastName"), usersMap[i].get("email"), usersMap[i].get("mobile")));
             }
                 customersAdapter = new CustomersAdapter(customerList);
