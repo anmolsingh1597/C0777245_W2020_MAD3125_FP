@@ -45,13 +45,6 @@ public class CustomerListActivity extends AppCompatActivity {
         name = findViewById(R.id.customerListTextView1);
         customerListView = findViewById(R.id.customerListRV);
         populateCustomers();
-//        customersAdapter = new CustomersAdapter(customerList);
-//        RecyclerView.LayoutManager thisLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,
-//                false);
-//
-//        customerListView.setLayoutManager(thisLayoutManager);
-//        customerListView.setAdapter(customersAdapter);
-
         fetchUser();
 
     }
@@ -93,41 +86,6 @@ public class CustomerListActivity extends AppCompatActivity {
                 Log.w("Failed to read value.", error.toException());
             }
         });
-
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-//
 
     }
 }
