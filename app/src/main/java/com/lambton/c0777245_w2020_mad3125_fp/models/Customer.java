@@ -1,31 +1,31 @@
 package com.lambton.c0777245_w2020_mad3125_fp.models;
 
 public class Customer {
-    private String  customerId;
+    private String id;
     private String firstName;
     private String lastName;
     private String fullName;
-    private String emailId;
+    private String email;
     private String mobile;
 
     public Customer() {
     }
 
-    public Customer(String customerId, String firstName, String lastName, String emailId, String mobile) {
-        this.customerId = customerId;
+    public Customer(String id, String firstName, String lastName, String email, String mobile) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.fullName = firstName + " " + lastName;
-        this.emailId = emailId;
+        this.email = email;
         this.mobile = mobile;
     }
 
-    public String getCustomerId() {
-        return customerId;
+    public String getId() {
+        return id;
     }
 
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -52,12 +52,12 @@ public class Customer {
         this.fullName = fullName;
     }
 
-    public String getEmailId() {
-        return emailId;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getMobile() {
@@ -71,11 +71,11 @@ public class Customer {
     @Override
     public String toString() {
         return "Customer{" +
-                "customerId='" + customerId + '\'' +
+                "customerId='" + id + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", fullName='" + fullName + '\'' +
-                ", emailId='" + emailId + '\'' +
+                ", emailId='" + email + '\'' +
                 ", mobile='" + mobile + '\'' +
                 '}';
     }

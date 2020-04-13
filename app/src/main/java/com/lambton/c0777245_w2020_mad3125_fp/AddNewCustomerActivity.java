@@ -10,6 +10,10 @@ public class AddNewCustomerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_customer);
+        initials();
+    }
+    public void initials(){
         getSupportActionBar().hide();
+
     }
 }
