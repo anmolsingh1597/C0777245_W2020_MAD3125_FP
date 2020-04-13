@@ -46,6 +46,7 @@ public class CustomerListActivity extends AppCompatActivity {
     }
     public void initials(){
         name = findViewById(R.id.customerListTextView1);
+        name.setText("Customer List");
         customerListView = findViewById(R.id.customerListRV);
         custListProgressBar = findViewById(R.id.customerListProgressBar);
         populateCustomers();
@@ -59,7 +60,8 @@ public class CustomerListActivity extends AppCompatActivity {
             fetchedBundle = intent.getBundleExtra("googleUserExtra");
             fetchedUser = (GoogleUser)fetchedBundle.getSerializable("googleUserBundle");
         }
-        name.setText(fetchedUser.getFullName());
+        getSupportActionBar().setTitle(fetchedUser.getFullName());
+
     }
 
     public void populateCustomers(){

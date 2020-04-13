@@ -50,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void initials(){
+        getSupportActionBar().hide();
         phoneNumberAuthProgressBar = findViewById(R.id.progressBar);
         status = findViewById(R.id.enterStatusTextView);
         customerListBtn = findViewById(R.id.customerListButton);
