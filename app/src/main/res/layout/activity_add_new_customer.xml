@@ -8,4 +8,175 @@
     android:theme="@style/Theme.MaterialComponents"
     tools:context=".AddNewCustomerActivity">
 
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Credentials"
+        android:textColor="@color/blue_grey_500"
+        android:textSize="@dimen/largeLabelSize"
+        app:layout_constraintBottom_toTopOf="@+id/idNumberTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.471" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/idNumberTextView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="32dp"
+        android:hint="@string/customer_id"
+        android:textColorHint="@color/green_300"
+        app:boxStrokeColor="@color/green_300"
+        app:boxStrokeErrorColor="@color/Red"
+        app:hintTextColor="@color/green_300"
+        app:layout_constraintBottom_toTopOf="@+id/firstNameTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:suffixTextColor="@color/Red">
+        ​
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/enterIdNumberTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/blue_grey_500"
+            android:textSize="12sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/firstNameTextView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="32dp"
+        android:hint="@string/first_name"
+        android:textColorHint="@color/green_300"
+        app:boxStrokeColor="@color/green_300"
+        app:boxStrokeErrorColor="@color/Red"
+        app:hintTextColor="@color/green_300"
+        app:layout_constraintBottom_toTopOf="@+id/lastNameTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:suffixTextColor="@color/Red">
+        ​
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/enterFirstNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/blue_grey_500"
+            android:textSize="12sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/lastNameTextView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="32dp"
+        android:hint="@string/last_name"
+        android:textColorHint="@color/green_300"
+        app:boxStrokeColor="@color/green_300"
+        app:boxStrokeErrorColor="@color/Red"
+        app:hintTextColor="@color/green_300"
+        app:layout_constraintBottom_toTopOf="@+id/emailTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:suffixTextColor="@color/Red">
+        ​
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/enterLastNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/blue_grey_500"
+            android:textSize="12sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailTextView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="32dp"
+        android:hint="@string/email"
+        android:textColorHint="@color/green_300"
+        app:boxStrokeColor="@color/green_300"
+        app:boxStrokeErrorColor="@color/Red"
+        app:hintTextColor="@color/green_300"
+        app:layout_constraintBottom_toTopOf="@+id/mobileTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:suffixTextColor="@color/Red">
+        ​
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/enterEmailTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/blue_grey_500"
+            android:textSize="12sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/mobileTextView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="207dp"
+        android:hint="@string/mobile_number"
+        android:textColorHint="@color/green_300"
+        app:boxStrokeColor="@color/green_300"
+        app:boxStrokeErrorColor="@color/Red"
+        app:hintTextColor="@color/green_300"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:suffixTextColor="@color/Red">
+        ​
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/enterMobileTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/blue_grey_500"
+            android:textSize="12sp"
+            app:textInputLayoutFocusedRectEnabled="false" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/button3"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="143dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/save"
+        android:textColor="@color/green_300"
+        android:onClick="saveButtonOnClicked"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mobileTextView" />
+
+    <Button
+        android:id="@+id/button2"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="143dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/clear"
+        android:textColor="@color/green_300"
+        android:onClick="clearButtonOnClicked"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mobileTextView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
