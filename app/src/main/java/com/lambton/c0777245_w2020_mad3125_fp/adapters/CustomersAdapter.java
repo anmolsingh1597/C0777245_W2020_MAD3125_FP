@@ -33,12 +33,12 @@ public class CustomersAdapter extends RecyclerView.Adapter<CustomersAdapter.Cust
     @Override
     public void onBindViewHolder(@NonNull final CustomersAdapter.CustomerViewHolder holder, final int position) {
         Customer customerObject = this.customerArrayList.get(position);
-        holder.customerNameText.setText(customerObject.getFullName());
+        holder.customerNameText.setText(customerObject.fullName());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Customer name  = customerArrayList.get(position);
-                Toast.makeText(holder.itemView.getContext(), "Name: "+ name.getFullName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(holder.itemView.getContext(), "Name: "+ name.fullName(), Toast.LENGTH_SHORT).show();
 
             }
         });

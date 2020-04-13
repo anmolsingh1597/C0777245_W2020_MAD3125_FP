@@ -15,9 +15,9 @@ public class Customer {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.fullName = firstName + " " + lastName;
         this.email = email;
         this.mobile = mobile;
+        this.fullName = firstName + " " + lastName;
     }
 
     public String getId() {
@@ -44,13 +44,13 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public String getFullName() {
-        return fullName;
-    }
+//    public String getFullName() {
+//        return fullName;
+//    }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
+//    public void setFullName(String fullName) {
+//        this.fullName = fullName;
+//    }
 
     public String getEmail() {
         return email;
@@ -74,9 +74,12 @@ public class Customer {
                 "customerId='" + id + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", fullName='" + fullName + '\'' +
                 ", emailId='" + email + '\'' +
                 ", mobile='" + mobile + '\'' +
                 '}';
+    }
+
+    public String fullName(){
+        return  fullName;
     }
 }

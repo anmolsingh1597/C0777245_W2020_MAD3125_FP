@@ -41,6 +41,8 @@ public class CustomerListActivity extends AppCompatActivity {
     private CustomersAdapter customersAdapter;
     private ProgressBar custListProgressBar;
 
+    static String actionBarTitle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +56,7 @@ public class CustomerListActivity extends AppCompatActivity {
         custListProgressBar = findViewById(R.id.customerListProgressBar);
         populateCustomers();
         fetchUser();
-
+        getSupportActionBar().setTitle(actionBarTitle);
     }
 
     public void fetchUser(){
@@ -62,8 +64,9 @@ public class CustomerListActivity extends AppCompatActivity {
         if (intent.hasExtra("googleUserExtra")){
             fetchedBundle = intent.getBundleExtra("googleUserExtra");
             fetchedUser = (GoogleUser)fetchedBundle.getSerializable("googleUserBundle");
+            actionBarTitle = fetchedUser.getFullName();
         }
-        getSupportActionBar().setTitle(fetchedUser.getFullName());
+
 
     }
 
