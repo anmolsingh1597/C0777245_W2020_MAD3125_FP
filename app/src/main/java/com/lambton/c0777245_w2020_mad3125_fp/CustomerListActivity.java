@@ -28,9 +28,13 @@ public class CustomerListActivity extends AppCompatActivity {
     private RecyclerView customerListView;
     private ArrayList<Customer> customerList;
     private CustomersAdapter customersAdapter;
+    RecyclerView.LayoutManager thisLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,
+            false);
+
 
     Bundle fetchedBundle;
     GoogleUser fetchedUser;
+
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Users");
@@ -44,12 +48,12 @@ public class CustomerListActivity extends AppCompatActivity {
         name = findViewById(R.id.customerListTextView1);
         customerListView = findViewById(R.id.customerListRV);
         populateCustomers();
-        customersAdapter = new CustomersAdapter(customerList);
-        RecyclerView.LayoutManager thisLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,
-                false);
-
-        customerListView.setLayoutManager(thisLayoutManager);
-        customerListView.setAdapter(customersAdapter);
+//        customersAdapter = new CustomersAdapter(customerList);
+//        RecyclerView.LayoutManager thisLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,
+//                false);
+//
+//        customerListView.setLayoutManager(thisLayoutManager);
+//        customerListView.setAdapter(customersAdapter);
 
         fetchUser();
 
@@ -74,13 +78,16 @@ public class CustomerListActivity extends AppCompatActivity {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 HashMap<String, HashMap<String, String>> value = (HashMap<String, HashMap<String, String>>) dataSnapshot.getValue();
+
                 HashMap<String, String>[] usersMap;
                 usersMap = value.values().toArray(new HashMap[value.size()]);
-                Log.d("Value is: ", usersMap[0].get("firstName"));
-                Toast.makeText(CustomerListActivity.this, usersMap[0].get("firstName"), Toast.LENGTH_SHORT).show();
-                for(int i = 0; i< usersMap.length ; i++){
-                    customerList.add(new Customer(usersMap[i].get("id"),usersMap[i].get("firstName"),usersMap[i].get("lastName"),usersMap[i].get("email"),usersMap[i].get("mobile")));
-                }
+
+                                for (int i = 0; i < usersMap.length; i++) {
+                customerList.add(new Customer(usersMap[i].get("id"), usersMap[i].get("firstName"), usersMap[i].get("lastName"), usersMap[i].get("email"), usersMap[i].get("mobile")));
+            }
+                customersAdapter = new CustomersAdapter(customerList);
+                customerListView.setLayoutManager(thisLayoutManager);
+                customerListView.setAdapter(customersAdapter);
             }
 
             @Override
@@ -90,7 +97,6 @@ public class CustomerListActivity extends AppCompatActivity {
             }
         });
 
-//
 //        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
 //        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
 //        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
