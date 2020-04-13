@@ -6,13 +6,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.lambton.c0777245_w2020_mad3125_fp.adapters.CustomersAdapter;
 import com.lambton.c0777245_w2020_mad3125_fp.models.Customer;
 import com.lambton.c0777245_w2020_mad3125_fp.models.GoogleUser;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CustomerListActivity extends AppCompatActivity {
 
@@ -23,6 +31,9 @@ public class CustomerListActivity extends AppCompatActivity {
 
     Bundle fetchedBundle;
     GoogleUser fetchedUser;
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("Users");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,41 +65,66 @@ public class CustomerListActivity extends AppCompatActivity {
     }
 
     public void populateCustomers(){
-        customerList = new ArrayList<>();
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
-        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
 
+        customerList = new ArrayList<>();
+        // Read from the database
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                HashMap<String, HashMap<String, String>> value = (HashMap<String, HashMap<String, String>>) dataSnapshot.getValue();
+                HashMap<String, String>[] usersMap;
+                usersMap = value.values().toArray(new HashMap[value.size()]);
+                Log.d("Value is: ", usersMap[0].get("firstName"));
+                Toast.makeText(CustomerListActivity.this, usersMap[0].get("firstName"), Toast.LENGTH_SHORT).show();
+                for(int i = 0; i< usersMap.length ; i++){
+                    customerList.add(new Customer(usersMap[i].get("id"),usersMap[i].get("firstName"),usersMap[i].get("lastName"),usersMap[i].get("email"),usersMap[i].get("mobile")));
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("Failed to read value.", error.toException());
+            }
+        });
+
+//
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//        customerList.add(new Customer("CUS_1","Anmol","Singh","",""));
+//
 
     }
 }
