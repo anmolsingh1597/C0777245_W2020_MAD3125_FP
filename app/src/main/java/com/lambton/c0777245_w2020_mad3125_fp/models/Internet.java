@@ -15,4 +15,19 @@ public class Internet extends Bill {
         this.providerName = providerName;
     }
 
+    public String getInternetGb() {
+        return internetGb;
+    }
+
+    public void setInternetGb(String internetGb) {
+        this.internetGb = internetGb;
+    }
+
+    public String getProviderName() {
+        return providerName;
+    }
+
+    public void setProviderName(String providerName) {
+        this.providerName = providerName;
+    }
 }
