@@ -16,8 +16,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.lambton.c0777245_w2020_mad3125_fp.adapters.InternetAdapter;
 import com.lambton.c0777245_w2020_mad3125_fp.adapters.MobileAdapter;
 import com.lambton.c0777245_w2020_mad3125_fp.models.Customer;
+import com.lambton.c0777245_w2020_mad3125_fp.models.Internet;
 import com.lambton.c0777245_w2020_mad3125_fp.models.Mobile;
 
 import java.util.ArrayList;
@@ -32,6 +34,8 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
     private RecyclerView billDetailsView;
     private ArrayList<Mobile> mobileList;
     private MobileAdapter mobileAdapter;
+    private ArrayList<Internet> internetList;
+    private InternetAdapter internetAdapter;
 
     Bundle customerBundle;
     Customer customerObject;
@@ -69,6 +73,8 @@ public void initials(){
 
 public void populateBills(){
         mobileList = new ArrayList<>();
+        internetList = new ArrayList<>();
+
     myRef.addValueEventListener(new ValueEventListener() {
         @Override
         public void onDataChange(DataSnapshot dataSnapshot) {
@@ -79,13 +85,28 @@ public void populateBills(){
             HashMap<String, String>[] usersMap;
             usersMap = value.values().toArray(new HashMap[value.size()]);
 
+
+
             for (int i = 0; i < usersMap.length; i++) {
-                mobileList.add(new Mobile(usersMap[i].get("custId"), usersMap[i].get("id"), usersMap[i].get("date"), usersMap[i].get("billType"), usersMap[i].get("billAmount"),
-                        usersMap[i].get("mobileManufacturer"),usersMap[i].get("planName"),usersMap[i].get("mobileNumber"),usersMap[i].get("internetGb"),usersMap[i].get("minutes")));
+                if(usersMap[i].get("billType").equals("Mobile")) {
+
+                    mobileList.add(new Mobile(usersMap[i].get("custId"), usersMap[i].get("id"), usersMap[i].get("date"), usersMap[i].get("billType"), usersMap[i].get("billAmount"),
+                            usersMap[i].get("mobileManufacturer"), usersMap[i].get("planName"), usersMap[i].get("mobileNumber"), usersMap[i].get("internetGb"), usersMap[i].get("minutes")));
+
+                    mobileAdapter = new MobileAdapter(mobileList);
+//                    billDetailsView.setLayoutManager(thisLayoutManager);
+//                    billDetailsView.setAdapter(mobileAdapter);
+                }
+                else if(usersMap[i].get("billType").equals("Internet")){
+                    internetList.add(new Internet(usersMap[i].get("custId"), usersMap[i].get("id"), usersMap[i].get("date"), usersMap[i].get("billType"), usersMap[i].get("billAmount"),
+                            usersMap[i].get("internetGb"), usersMap[i].get("providerName")));
+
+                    internetAdapter = new InternetAdapter(internetList);
+                    billDetailsView.setLayoutManager(thisLayoutManager);
+                    billDetailsView.setAdapter(internetAdapter);
+                }
             }
-            mobileAdapter = new MobileAdapter(mobileList);
-            billDetailsView.setLayoutManager(thisLayoutManager);
-            billDetailsView.setAdapter(mobileAdapter);
+
         }
 
         @Override
