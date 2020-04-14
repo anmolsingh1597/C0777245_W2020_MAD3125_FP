@@ -64,4 +64,19 @@ public class Mobile extends Bill {
         this.minutes = minutes;
     }
 
+    @Override
+    public String toString() {
+        return "Mobile{" +
+                "mobileManufacturer='" + mobileManufacturer + '\'' +
+                ", planName='" + planName + '\'' +
+                ", mobileNumber='" + mobileNumber + '\'' +
+                ", internetGb='" + internetGb + '\'' +
+                ", minutes='" + minutes + '\'' +
+                ", custId='" + custId + '\'' +
+                ", id='" + id + '\'' +
+                ", date='" + date + '\'' +
+                ", billType='" + billType + '\'' +
+                ", billAmount='" + billAmount + '\'' +
+                '}';
+    }
 }
