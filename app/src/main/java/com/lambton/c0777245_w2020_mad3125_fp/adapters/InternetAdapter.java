@@ -34,13 +34,13 @@ public class InternetAdapter extends RecyclerView.Adapter<InternetAdapter.Intern
     @Override
     public void onBindViewHolder(@NonNull InternetAdapter.InternetViewHolder holder, int position) {
         Internet internetObject = this.internetArrayList.get(position);
-        holder.cusId.setText(internetObject.getCustId());
-        holder.id.setText(internetObject.getId());
-        holder.date.setText(internetObject.getDate());
-        holder.type.setText(internetObject.getBillType());
-        holder.internetGb.setText("Internet GB used: " + internetObject.getInternetGb());
-        holder.providerName.setText(internetObject.getProviderName());
-        holder.amount.setText(internetObject.getBillAmount());
+        holder.cusId.setText("Customer Id: " + internetObject.getCustId());
+        holder.id.setText("Bill Id: " + internetObject.getId());
+        holder.date.setText("Date: " + internetObject.getDate());
+        holder.type.setText("Bill Type: " + internetObject.getBillType());
+        holder.internetGb.setText("Internet GB used: " + internetObject.getInternetGb() + " GB");
+        holder.providerName.setText("Provider Name: " + internetObject.getProviderName());
+        holder.amount.setText("Amount: $" + internetObject.getBillAmount());
 
     }
 

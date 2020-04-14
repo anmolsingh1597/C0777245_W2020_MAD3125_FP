@@ -39,7 +39,7 @@ public class MobileAdapter extends RecyclerView.Adapter<MobileAdapter.MobileView
     holder.manufacturerName.setText("Manufacturer: " + mobileObject.getMobileManufacturer());
     holder.planName.setText("Plan: " + mobileObject.getPlanName());
     holder.mobileNumber.setText("Mobile: " + mobileObject.getMobileNumber());
-    holder.internetGBUsed.setText("Internet GB Used: " + mobileObject.getInternetGb() + "GB");
+    holder.internetGBUsed.setText("Internet GB Used: " + mobileObject.getInternetGb() + " GB");
     holder.minutesUsed.setText("Minutes Used: " + mobileObject.getMinutes() + " minutes");
     holder.amount.setText("Amount: $" + mobileObject.getBillAmount());
 
