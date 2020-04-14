@@ -32,15 +32,15 @@ public class MobileAdapter extends RecyclerView.Adapter<MobileAdapter.MobileView
     @Override
     public void onBindViewHolder(@NonNull MobileAdapter.MobileViewHolder holder, int position) {
     Mobile mobileObject = this.mobileArrayList.get(position);
-    holder.cusId.setText(mobileObject.getCustId());
-    holder.id.setText(mobileObject.getId());
-    holder.date.setText(mobileObject.getDate());
-    holder.type.setText(mobileObject.getBillType());
-    holder.manufacturerName.setText(mobileObject.getMobileManufacturer());
-    holder.planName.setText(mobileObject.getPlanName());
-    holder.mobileNumber.setText(mobileObject.getMobileNumber());
-    holder.internetGBUsed.setText(mobileObject.getInternetGb());
-    holder.minutesUsed.setText(mobileObject.getMinutes());
+    holder.cusId.setText("Customer Id: " + mobileObject.getCustId());
+    holder.id.setText("Bill Id: " + mobileObject.getId());
+    holder.date.setText("Date: " + mobileObject.getDate());
+    holder.type.setText("Bill Type: " + mobileObject.getBillType());
+    holder.manufacturerName.setText("Manufacturer: " + mobileObject.getMobileManufacturer());
+    holder.planName.setText("Plan: " + mobileObject.getPlanName());
+    holder.mobileNumber.setText("Mobile: " + mobileObject.getMobileNumber());
+    holder.internetGBUsed.setText("Internet GB Used: " + mobileObject.getInternetGb() + "GB");
+    holder.minutesUsed.setText("Minutes Used: " + mobileObject.getMinutes() + " minutes");
     holder.amount.setText("Amount: $" + mobileObject.getBillAmount());
 
     }
