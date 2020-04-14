@@ -1,5 +1,7 @@
 package com.lambton.c0777245_w2020_mad3125_fp.adapters;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lambton.c0777245_w2020_mad3125_fp.R;
+import com.lambton.c0777245_w2020_mad3125_fp.ShowBillDetailsActivity;
 import com.lambton.c0777245_w2020_mad3125_fp.models.Customer;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class CustomersAdapter extends RecyclerView.Adapter<CustomersAdapter.CustomerViewHolder>
@@ -38,7 +42,11 @@ public class CustomersAdapter extends RecyclerView.Adapter<CustomersAdapter.Cust
             @Override
             public void onClick(View v) {
                 Customer name  = customerArrayList.get(position);
-                Toast.makeText(holder.itemView.getContext(), "Name: "+ name.fullName(), Toast.LENGTH_SHORT).show();
+                Bundle customerBundle = new Bundle();
+                customerBundle.putSerializable("customerObject",(Serializable) name);
+                Intent billDetails = new Intent(holder.itemView.getContext(), ShowBillDetailsActivity.class);
+                billDetails.putExtra("cusObject", customerBundle);
+                holder.itemView.getContext().startActivity(billDetails);
 
             }
         });

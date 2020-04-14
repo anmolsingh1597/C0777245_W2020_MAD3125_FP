@@ -1,6 +1,8 @@
 package com.lambton.c0777245_w2020_mad3125_fp.models;
 
-public class Customer {
+import java.io.Serializable;
+
+public class Customer implements Serializable {
     private String id;
     private String firstName;
     private String lastName;
