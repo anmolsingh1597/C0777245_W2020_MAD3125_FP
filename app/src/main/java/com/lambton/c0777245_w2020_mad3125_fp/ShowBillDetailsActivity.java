@@ -52,6 +52,11 @@ public void initials(){
         mobileTextView.setText("Mobile: " + customerObject.getMobile());
     }
     getSupportActionBar().setTitle(name);
+    populateBills();
+}
+
+public void populateBills(){
+
 }
 
     @Override
