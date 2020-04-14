@@ -1,6 +1,7 @@
 package com.lambton.c0777245_w2020_mad3125_fp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -8,6 +9,8 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.lambton.c0777245_w2020_mad3125_fp.models.Customer;
 
 public class ShowBillDetailsActivity extends AppCompatActivity {
@@ -22,6 +25,10 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
     Customer customerObject;
       static String name;
 
+    RecyclerView.LayoutManager thisLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,
+            false);
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("Bills");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
