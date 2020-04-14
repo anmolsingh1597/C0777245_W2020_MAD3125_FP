@@ -8,4 +8,51 @@
     android:theme="@style/Theme.MaterialComponents"
     tools:context=".ShowBillDetailsActivity">
 
+    <TextView
+        android:id="@+id/billDetailsText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="37dp"
+        android:text="TextView"
+        android:textColor="@color/blue_grey_500"
+        android:textSize="@dimen/labelFontSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/billDetailsText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        android:textColor="@color/blue_grey_500"
+        android:textSize="@dimen/labelFontSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/billDetailsText1" />
+
+    <TextView
+        android:id="@+id/billDetailsText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        android:textColor="@color/blue_grey_500"
+        android:textSize="@dimen/labelFontSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/billDetailsText2" />
+
+    <TextView
+        android:id="@+id/billDetailsText4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        android:textColor="@color/blue_grey_500"
+        android:textSize="@dimen/labelFontSize"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/billDetailsText3" />
 </androidx.constraintlayout.widget.ConstraintLayout>
