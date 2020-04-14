@@ -6,12 +6,22 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.lambton.c0777245_w2020_mad3125_fp.adapters.MobileAdapter;
 import com.lambton.c0777245_w2020_mad3125_fp.models.Customer;
+import com.lambton.c0777245_w2020_mad3125_fp.models.Mobile;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ShowBillDetailsActivity extends AppCompatActivity {
 
@@ -20,6 +30,8 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
     private TextView emailTextView;
     private TextView mobileTextView;
     private RecyclerView billDetailsView;
+    private ArrayList<Mobile> mobileList;
+    private MobileAdapter mobileAdapter;
 
     Bundle customerBundle;
     Customer customerObject;
@@ -56,6 +68,33 @@ public void initials(){
 }
 
 public void populateBills(){
+        mobileList = new ArrayList<>();
+    myRef.addValueEventListener(new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+            // This method is called once with the initial value and again
+            // whenever data at this location is updated.
+            HashMap<String, HashMap<String, String>> value = (HashMap<String, HashMap<String, String>>) dataSnapshot.getValue();
+
+            HashMap<String, String>[] usersMap;
+            usersMap = value.values().toArray(new HashMap[value.size()]);
+
+            for (int i = 0; i < usersMap.length; i++) {
+                mobileList.add(new Mobile(usersMap[i].get("custId"), usersMap[i].get("id"), usersMap[i].get("date"), usersMap[i].get("billType"), usersMap[i].get("billAmount"),
+                        usersMap[i].get("mobileManufacturer"),usersMap[i].get("planName"),usersMap[i].get("mobileNumber"),usersMap[i].get("internetGb"),usersMap[i].get("minutes")));
+            }
+            mobileAdapter = new MobileAdapter(mobileList);
+            billDetailsView.setLayoutManager(thisLayoutManager);
+            billDetailsView.setAdapter(mobileAdapter);
+//            custListProgressBar.setVisibility(View.GONE);
+        }
+
+        @Override
+        public void onCancelled(DatabaseError error) {
+            // Failed to read value
+            Log.w("Failed to read value.", error.toException());
+        }
+    });
 
 }
 
