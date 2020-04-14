@@ -58,14 +58,37 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/billDetailsRecyclerView"
-        android:layout_width="409dp"
-        android:layout_height="435dp"
+        android:layout_width="match_parent"
+        android:layout_height="123dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="94dp"
+        android:layout_marginTop="44dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/billDetailsText4" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/internetRV"
+        android:layout_width="match_parent"
+        android:layout_height="123dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/billDetailsRecyclerView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/hydroRV"
+        android:layout_width="match_parent"
+        android:layout_height="123dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="43dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/internetRV" />
 </androidx.constraintlayout.widget.ConstraintLayout>

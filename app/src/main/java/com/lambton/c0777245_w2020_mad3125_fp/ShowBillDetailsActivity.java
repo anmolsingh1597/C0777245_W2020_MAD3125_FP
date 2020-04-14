@@ -32,6 +32,8 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
     private TextView emailTextView;
     private TextView mobileTextView;
     private RecyclerView billDetailsView;
+    private RecyclerView internetBillDetail;
+    private RecyclerView hydroBillDetail;
     private ArrayList<Mobile> mobileList;
     private MobileAdapter mobileAdapter;
     private ArrayList<Internet> internetList;
@@ -42,6 +44,8 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
       static String name;
 
     RecyclerView.LayoutManager thisLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,
+            false);
+    RecyclerView.LayoutManager internetLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,
             false);
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Bills");
@@ -57,6 +61,8 @@ public void initials(){
         emailTextView = findViewById(R.id.billDetailsText3);
         mobileTextView = findViewById(R.id.billDetailsText4);
         billDetailsView = findViewById(R.id.billDetailsRecyclerView);
+        internetBillDetail = findViewById(R.id.internetRV);
+        hydroBillDetail = findViewById(R.id.hydroRV);
     Intent intent = getIntent();
     if (intent.hasExtra("cusObject")){
         customerBundle = intent.getBundleExtra("cusObject");
@@ -94,16 +100,16 @@ public void populateBills(){
                             usersMap[i].get("mobileManufacturer"), usersMap[i].get("planName"), usersMap[i].get("mobileNumber"), usersMap[i].get("internetGb"), usersMap[i].get("minutes")));
 
                     mobileAdapter = new MobileAdapter(mobileList);
-//                    billDetailsView.setLayoutManager(thisLayoutManager);
-//                    billDetailsView.setAdapter(mobileAdapter);
+                    billDetailsView.setLayoutManager(thisLayoutManager);
+                    billDetailsView.setAdapter(mobileAdapter);
                 }
                 else if(usersMap[i].get("billType").equals("Internet")){
                     internetList.add(new Internet(usersMap[i].get("custId"), usersMap[i].get("id"), usersMap[i].get("date"), usersMap[i].get("billType"), usersMap[i].get("billAmount"),
                             usersMap[i].get("internetGb"), usersMap[i].get("providerName")));
 
                     internetAdapter = new InternetAdapter(internetList);
-                    billDetailsView.setLayoutManager(thisLayoutManager);
-                    billDetailsView.setAdapter(internetAdapter);
+                    internetBillDetail.setLayoutManager(internetLayoutManager);
+                    internetBillDetail.setAdapter(internetAdapter);
                 }
             }
 
