@@ -7,6 +7,14 @@
     android:background="@color/blue_grey_900"
     android:theme="@style/Theme.MaterialComponents"
     tools:context=".ShowBillDetailsActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
     <TextView
         android:id="@+id/billDetailsText1"
@@ -56,39 +64,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/billDetailsText3" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/billDetailsRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="123dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/billDetailsText4" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/billDetailsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/billDetailsText4" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/internetRV"
-        android:layout_width="match_parent"
-        android:layout_height="123dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/billDetailsRecyclerView" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/internetRV"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/billDetailsRecyclerView" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/hydroRV"
-        android:layout_width="match_parent"
-        android:layout_height="123dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="43dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/internetRV" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/hydroRV"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="43dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/internetRV" />
+    </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
