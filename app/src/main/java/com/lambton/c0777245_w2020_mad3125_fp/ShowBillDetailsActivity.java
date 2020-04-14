@@ -37,7 +37,7 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
     Customer customerObject;
       static String name;
 
-    RecyclerView.LayoutManager thisLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,
+    RecyclerView.LayoutManager thisLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,
             false);
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Bills");
@@ -86,7 +86,6 @@ public void populateBills(){
             mobileAdapter = new MobileAdapter(mobileList);
             billDetailsView.setLayoutManager(thisLayoutManager);
             billDetailsView.setAdapter(mobileAdapter);
-//            custListProgressBar.setVisibility(View.GONE);
         }
 
         @Override
