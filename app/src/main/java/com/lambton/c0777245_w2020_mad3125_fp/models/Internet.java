@@ -30,4 +30,17 @@ public class Internet extends Bill {
     public void setProviderName(String providerName) {
         this.providerName = providerName;
     }
+
+    @Override
+    public String toString() {
+        return "Internet{" +
+                "internetGb='" + internetGb + '\'' +
+                ", providerName='" + providerName + '\'' +
+                ", custId='" + custId + '\'' +
+                ", id='" + id + '\'' +
+                ", date='" + date + '\'' +
+                ", billType='" + billType + '\'' +
+                ", billAmount='" + billAmount + '\'' +
+                '}';
+    }
 }
