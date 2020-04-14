@@ -41,7 +41,7 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
 
     Bundle customerBundle;
     Customer customerObject;
-      static String name;
+    static String name;
 
     RecyclerView.LayoutManager thisLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,
             false);
