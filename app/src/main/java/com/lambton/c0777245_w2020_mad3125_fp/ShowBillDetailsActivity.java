@@ -1,6 +1,7 @@
 package com.lambton.c0777245_w2020_mad3125_fp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,13 +16,12 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
     private TextView fullNameTextView;
     private TextView emailTextView;
     private TextView mobileTextView;
+    private RecyclerView billDetailsView;
 
     Bundle customerBundle;
     Customer customerObject;
-//    String id;
       static String name;
-//    String email;
-//    String mobile;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +33,7 @@ public void initials(){
         fullNameTextView = findViewById(R.id.billDetailsText2);
         emailTextView = findViewById(R.id.billDetailsText3);
         mobileTextView = findViewById(R.id.billDetailsText4);
+        billDetailsView = findViewById(R.id.billDetailsRecyclerView);
     Intent intent = getIntent();
     if (intent.hasExtra("cusObject")){
         customerBundle = intent.getBundleExtra("cusObject");
