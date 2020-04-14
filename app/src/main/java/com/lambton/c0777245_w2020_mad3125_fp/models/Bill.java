@@ -4,5 +4,9 @@ import java.io.Serializable;
 
 public class Bill implements Serializable {
     String custId;
+    String id;
+    String date;
+    String billType;
+    String billAmount;
 
 }
