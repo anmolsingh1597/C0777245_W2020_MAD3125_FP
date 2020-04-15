@@ -16,9 +16,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.lambton.c0777245_w2020_mad3125_fp.adapters.HydroAdapter;
 import com.lambton.c0777245_w2020_mad3125_fp.adapters.InternetAdapter;
 import com.lambton.c0777245_w2020_mad3125_fp.adapters.MobileAdapter;
 import com.lambton.c0777245_w2020_mad3125_fp.models.Customer;
+import com.lambton.c0777245_w2020_mad3125_fp.models.Hydro;
 import com.lambton.c0777245_w2020_mad3125_fp.models.Internet;
 import com.lambton.c0777245_w2020_mad3125_fp.models.Mobile;
 
@@ -38,6 +40,8 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
     private MobileAdapter mobileAdapter;
     private ArrayList<Internet> internetList;
     private InternetAdapter internetAdapter;
+    private ArrayList<Hydro> hydroList;
+    private HydroAdapter hydroAdapter;
 
     Bundle customerBundle;
     Customer customerObject;
@@ -46,6 +50,8 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
     RecyclerView.LayoutManager thisLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,
             false);
     RecyclerView.LayoutManager internetLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,
+            false);
+    RecyclerView.LayoutManager hydroLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,
             false);
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Bills");
@@ -80,6 +86,7 @@ public void initials(){
 public void populateBills(){
         mobileList = new ArrayList<>();
         internetList = new ArrayList<>();
+        hydroList = new ArrayList<>();
 
     myRef.addValueEventListener(new ValueEventListener() {
         @Override
@@ -95,7 +102,6 @@ public void populateBills(){
 
             for (int i = 0; i < usersMap.length; i++) {
                 if(usersMap[i].get("billType").equals("Mobile")) {
-
                     mobileList.add(new Mobile(usersMap[i].get("custId"), usersMap[i].get("id"), usersMap[i].get("date"), usersMap[i].get("billType"), usersMap[i].get("billAmount"),
                             usersMap[i].get("mobileManufacturer"), usersMap[i].get("planName"), usersMap[i].get("mobileNumber"), usersMap[i].get("internetGb"), usersMap[i].get("minutes")));
 
@@ -110,6 +116,14 @@ public void populateBills(){
                     internetAdapter = new InternetAdapter(internetList);
                     internetBillDetail.setLayoutManager(internetLayoutManager);
                     internetBillDetail.setAdapter(internetAdapter);
+                }else if(usersMap[i].get("billType").equals("Hydro")){
+                    hydroList.add(new Hydro(usersMap[i].get("custId"), usersMap[i].get("id"), usersMap[i].get("date"), usersMap[i].get("billType"), usersMap[i].get("billAmount"),
+                            usersMap[i].get("agencyName"),usersMap[i].get("unitsConsumed")));
+
+                    hydroAdapter = new HydroAdapter(hydroList);
+                    hydroBillDetail.setLayoutManager(hydroLayoutManager);
+                    hydroBillDetail.setAdapter(hydroAdapter);
+
                 }
             }
 
