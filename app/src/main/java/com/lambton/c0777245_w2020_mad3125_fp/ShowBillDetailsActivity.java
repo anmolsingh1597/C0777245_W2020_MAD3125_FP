@@ -98,8 +98,6 @@ public void populateBills(){
             HashMap<String, String>[] usersMap;
             usersMap = value.values().toArray(new HashMap[value.size()]);
 
-
-
             for (int i = 0; i < usersMap.length; i++) {
                 if(usersMap[i].get("billType").equals("Mobile")) {
                     mobileList.add(new Mobile(usersMap[i].get("custId"), usersMap[i].get("id"), usersMap[i].get("date"), usersMap[i].get("billType"), usersMap[i].get("billAmount"),
