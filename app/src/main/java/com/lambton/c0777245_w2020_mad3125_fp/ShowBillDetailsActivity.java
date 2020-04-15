@@ -46,6 +46,7 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
     Bundle customerBundle;
     Customer customerObject;
     static String name;
+    String id;
 
     RecyclerView.LayoutManager thisLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,
             false);
@@ -78,8 +79,10 @@ public void initials(){
         fullNameTextView.setText("Full Name: " + customerObject.fullName());
         emailTextView.setText("Email: " + customerObject.getEmail());
         mobileTextView.setText("Mobile: " + customerObject.getMobile());
+        id = customerObject.getId();
     }
     getSupportActionBar().setTitle(name);
+
     populateBills();
 }
 
@@ -99,30 +102,34 @@ public void populateBills(){
             usersMap = value.values().toArray(new HashMap[value.size()]);
 
             for (int i = 0; i < usersMap.length; i++) {
-                if(usersMap[i].get("billType").equals("Mobile")) {
+
+                if (usersMap[i].get("custId").equals(id)) {
+                
+
+                if (usersMap[i].get("billType").equals("Mobile")) {
                     mobileList.add(new Mobile(usersMap[i].get("custId"), usersMap[i].get("id"), usersMap[i].get("date"), usersMap[i].get("billType"), usersMap[i].get("billAmount"),
                             usersMap[i].get("mobileManufacturer"), usersMap[i].get("planName"), usersMap[i].get("mobileNumber"), usersMap[i].get("internetGb"), usersMap[i].get("minutes")));
 
                     mobileAdapter = new MobileAdapter(mobileList);
                     billDetailsView.setLayoutManager(thisLayoutManager);
                     billDetailsView.setAdapter(mobileAdapter);
-                }
-                else if(usersMap[i].get("billType").equals("Internet")){
+                } else if (usersMap[i].get("billType").equals("Internet")) {
                     internetList.add(new Internet(usersMap[i].get("custId"), usersMap[i].get("id"), usersMap[i].get("date"), usersMap[i].get("billType"), usersMap[i].get("billAmount"),
                             usersMap[i].get("internetGb"), usersMap[i].get("providerName")));
 
                     internetAdapter = new InternetAdapter(internetList);
                     internetBillDetail.setLayoutManager(internetLayoutManager);
                     internetBillDetail.setAdapter(internetAdapter);
-                }else if(usersMap[i].get("billType").equals("Hydro")){
+                } else if (usersMap[i].get("billType").equals("Hydro")) {
                     hydroList.add(new Hydro(usersMap[i].get("custId"), usersMap[i].get("id"), usersMap[i].get("date"), usersMap[i].get("billType"), usersMap[i].get("billAmount"),
-                            usersMap[i].get("agencyName"),usersMap[i].get("unitsConsumed")));
+                            usersMap[i].get("agencyName"), usersMap[i].get("unitsConsumed")));
 
                     hydroAdapter = new HydroAdapter(hydroList);
                     hydroBillDetail.setLayoutManager(hydroLayoutManager);
                     hydroBillDetail.setAdapter(hydroAdapter);
 
                 }
+            }
             }
 
         }
