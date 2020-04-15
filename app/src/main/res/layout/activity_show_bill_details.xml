@@ -65,6 +65,18 @@
         app:layout_constraintTop_toBottomOf="@+id/billDetailsText3" />
 
         <TextView
+            android:id="@+id/billDetailsText5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:text="TextView"
+            android:textColor="@color/blue_grey_500"
+            android:textSize="@dimen/labelFontSize"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/billDetailsText4" />
+
+        <TextView
             android:id="@+id/textView21"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
