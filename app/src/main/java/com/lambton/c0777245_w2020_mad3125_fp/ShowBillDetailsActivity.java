@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -33,6 +34,7 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
     private TextView fullNameTextView;
     private TextView emailTextView;
     private TextView mobileTextView;
+    private TextView totalAmountTextView;
     private RecyclerView billDetailsView;
     private RecyclerView internetBillDetail;
     private RecyclerView hydroBillDetail;
@@ -47,6 +49,7 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
     Customer customerObject;
     static String name;
     String id;
+    Double totalAmount = 0.0;
 
     RecyclerView.LayoutManager thisLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,
             false);
@@ -67,6 +70,7 @@ public void initials(){
         fullNameTextView = findViewById(R.id.billDetailsText2);
         emailTextView = findViewById(R.id.billDetailsText3);
         mobileTextView = findViewById(R.id.billDetailsText4);
+        totalAmountTextView = findViewById(R.id.billDetailsText5);
         billDetailsView = findViewById(R.id.billDetailsRecyclerView);
         internetBillDetail = findViewById(R.id.internetRV);
         hydroBillDetail = findViewById(R.id.hydroRV);
@@ -110,12 +114,16 @@ public void populateBills(){
                     mobileList.add(new Mobile(usersMap[i].get("custId"), usersMap[i].get("id"), usersMap[i].get("date"), usersMap[i].get("billType"), usersMap[i].get("billAmount"),
                             usersMap[i].get("mobileManufacturer"), usersMap[i].get("planName"), usersMap[i].get("mobileNumber"), usersMap[i].get("internetGb"), usersMap[i].get("minutes")));
 
+                    totalAmount += Double.parseDouble(usersMap[i].get("billAmount"));
+
                     mobileAdapter = new MobileAdapter(mobileList);
                     billDetailsView.setLayoutManager(thisLayoutManager);
                     billDetailsView.setAdapter(mobileAdapter);
                 } else if (usersMap[i].get("billType").equals("Internet")) {
                     internetList.add(new Internet(usersMap[i].get("custId"), usersMap[i].get("id"), usersMap[i].get("date"), usersMap[i].get("billType"), usersMap[i].get("billAmount"),
                             usersMap[i].get("internetGb"), usersMap[i].get("providerName")));
+
+                    totalAmount += Double.parseDouble(usersMap[i].get("billAmount"));
 
                     internetAdapter = new InternetAdapter(internetList);
                     internetBillDetail.setLayoutManager(internetLayoutManager);
@@ -124,12 +132,21 @@ public void populateBills(){
                     hydroList.add(new Hydro(usersMap[i].get("custId"), usersMap[i].get("id"), usersMap[i].get("date"), usersMap[i].get("billType"), usersMap[i].get("billAmount"),
                             usersMap[i].get("agencyName"), usersMap[i].get("unitsConsumed")));
 
+                    totalAmount += Double.parseDouble(usersMap[i].get("billAmount"));
+
                     hydroAdapter = new HydroAdapter(hydroList);
                     hydroBillDetail.setLayoutManager(hydroLayoutManager);
                     hydroBillDetail.setAdapter(hydroAdapter);
 
                 }
             }
+            }
+            if (totalAmount>0.0){
+            totalAmountTextView.setText("Total Bill: $" + String.valueOf(totalAmount));
+            totalAmountTextView.setTextColor(Color.parseColor("#66BB6A"));
+            }else {
+                totalAmountTextView.setText("User doesn't have any pending Bill ");
+                totalAmountTextView.setTextColor(Color.parseColor("#ff0000"));
             }
 
         }
