@@ -57,7 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:hint="@string/bill_id"
         android:textColorHint="@color/green_300"
@@ -75,6 +75,48 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/blue_grey_500"
+            android:textSize="12sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="dateImageButton"
+        app:layout_constraintEnd_toStartOf="@+id/dateTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/billIdTextView"
+        app:srcCompat="@android:drawable/ic_menu_my_calendar" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/dateTextView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:hint="@string/date"
+        android:textColorHint="@color/green_300"
+        app:boxStrokeColor="@color/green_300"
+        app:boxStrokeErrorColor="@color/Red"
+        app:hintTextColor="@color/green_300"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintTop_toBottomOf="@+id/billIdTextView"
+        app:startIconCheckable="true"
+        app:startIconTint="@color/green_400"
+        app:suffixTextColor="@color/Red">
+        ​
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/enterDateTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
             android:textColor="@color/blue_grey_500"
             android:textSize="12sp" />
