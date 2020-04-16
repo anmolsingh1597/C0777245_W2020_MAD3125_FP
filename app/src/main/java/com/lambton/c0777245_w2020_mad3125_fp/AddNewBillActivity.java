@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.RadioButton;
@@ -42,6 +43,21 @@ public class AddNewBillActivity extends AppCompatActivity {
     private TextInputLayout generalTView5;
     private TextView totalBillAmountTextView;
 
+    String cusIdText;
+    String billIDText;
+    String dateText;
+    String billTypeText = "Mobile";
+    String amountText;
+    String mobileManufacturerText;
+    String planNameText;
+    String mobileNumberText;
+    String mobileInternetGbText;
+    String minutesText;
+    String internetGbText;
+    String providerNameText;
+    String agencyNameText;
+    String unitsConsumedText;
+
 
 
     @Override
@@ -78,8 +94,14 @@ public class AddNewBillActivity extends AppCompatActivity {
         if(intent.hasExtra("custId")){
             customerId.setText(intent.getStringExtra("custId"));
             customerId.setEnabled(false);
+            cusIdText = customerId.getText().toString();
         }
         date.setEnabled(false);
+        generalTView1.setHint("Mobile Manufacturer");
+        generalTView2.setHint("Mobile Number");
+        generalTView3.setHint("Plan Name");
+        generalTView4.setHint("Internet GB used");
+        generalTView5.setHint("Minutes Consumed");
 
 
 
@@ -102,6 +124,8 @@ public class AddNewBillActivity extends AppCompatActivity {
                         // set day of month , month and year value in the edit text
                         date.setText(getMonthForInt(monthOfYear) + " " + dayOfMonth+", "+year);
 
+
+                        dateText = date.getText().toString();
                     }
                 }, mYear, mMonth, mDay);
         datePickerDialog.show();
@@ -117,38 +141,49 @@ public class AddNewBillActivity extends AppCompatActivity {
         return month;
     }
 
-    public void radioGroupAction(){
-        int selectedId = billTypeRadioGroup.getCheckedRadioButtonId();
-            billTypeRadioButton = findViewById(selectedId);
-            if(billTypeRadioButton.getText().toString().equals("Mobile")){
-                generalTView1.setHint("Mobile Manufacturer");
-                generalTView2.setHint("Mobile Number");
-                generalTView3.setHint("Plan Name");
-                generalTView4.setHint("Internet GB used");
-                generalTView5.setHint("Minutes Consumed");
-                generalTView3.setVisibility(View.VISIBLE);
-                generalTView4.setVisibility(View.VISIBLE);
-                generalTView5.setVisibility(View.VISIBLE);
-            }else if(billTypeRadioButton.getText().toString().equals("Internet")){
-                generalTView1.setHint("Provider Name");
-                generalTView2.setHint("Internet GB Used");
-                generalTView3.setVisibility(View.GONE);
-                generalTView4.setVisibility(View.GONE);
-                generalTView5.setVisibility(View.GONE);
-
-            }else if(billTypeRadioButton.getText().toString().equals("Hydro")){
-                generalTView1.setHint("Agency Name");
-                generalTView2.setHint("Units Consumed");
-                generalTView3.setVisibility(View.GONE);
-                generalTView4.setVisibility(View.GONE);
-                generalTView5.setVisibility(View.GONE);
-            }
-
-
-        
+    public void onClickMobileRadioButton(View view){
+        billTypeText = "Mobile";
+        generalTView1.setHint("Mobile Manufacturer");
+        generalTView2.setHint("Mobile Number");
+        generalTView3.setHint("Plan Name");
+        generalTView4.setHint("Internet GB used");
+        generalTView5.setHint("Minutes Consumed");
+        generalTView3.setVisibility(View.VISIBLE);
+        generalTView4.setVisibility(View.VISIBLE);
+        generalTView5.setVisibility(View.VISIBLE);
     }
 
+    public void onClickInternetRadioButton(View view){
+        billTypeText = "Internet";
+        generalTView1.setHint("Provider Name");
+        generalTView2.setHint("Internet GB Used");
+        generalTView3.setVisibility(View.GONE);
+        generalTView4.setVisibility(View.GONE);
+        generalTView5.setVisibility(View.GONE);
+    }
+
+    public void onClickHydroRadioButton(View view){
+        billTypeText = "Hydro";
+        generalTView1.setHint("Agency Name");
+        generalTView2.setHint("Units Consumed");
+        generalTView3.setVisibility(View.GONE);
+        generalTView4.setVisibility(View.GONE);
+        generalTView5.setVisibility(View.GONE);
+
+    }
     public void onClickBillSaveButton(View view){
-        radioGroupAction();
+
+        billIDText = billId.getText().toString();
+
+        amountText = totalBillAmountTextView.getText().toString();
+
+        if(billTypeText.equals("Mobile")){
+            Toast.makeText(AddNewBillActivity.this, cusIdText+billIDText+dateText+" "+billTypeText+" "+amountText, Toast.LENGTH_SHORT).show();
+        } else if(billTypeText.equals("Internet")){
+            Toast.makeText(AddNewBillActivity.this, cusIdText+billIDText+dateText+billTypeText+amountText, Toast.LENGTH_SHORT).show();
+        }else if(billTypeText.equals("Hydro")){
+            Toast.makeText(AddNewBillActivity.this, cusIdText+billIDText+dateText+billTypeText+amountText, Toast.LENGTH_SHORT).show();
+        }
+
     }
 }

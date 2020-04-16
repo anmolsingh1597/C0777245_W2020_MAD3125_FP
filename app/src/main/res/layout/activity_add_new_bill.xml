@@ -148,19 +148,22 @@
                 android:id="@+id/mobileRadioButton"
                 android:layout_width="95dp"
                 android:layout_height="match_parent"
-                android:text="Mobile" />
+                android:text="Mobile"
+                android:onClick="onClickMobileRadioButton"/>
 
             <RadioButton
                 android:id="@+id/internetRadioButton"
                 android:layout_width="95dp"
                 android:layout_height="match_parent"
-                android:text="Internet" />
+                android:text="Internet"
+                android:onClick="onClickInternetRadioButton"/>
 
             <RadioButton
                 android:id="@+id/hydroRadioButton"
                 android:layout_width="89dp"
                 android:layout_height="match_parent"
-                android:text="Hydro" />
+                android:text="Hydro"
+                android:onClick="onClickHydroRadioButton"/>
         </RadioGroup>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -326,7 +329,7 @@
             android:id="@+id/enterTotalBillTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
             android:textColor="@color/blue_grey_500"
             android:textSize="12sp" />
