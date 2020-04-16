@@ -175,6 +175,7 @@ public void populateBills(){
         switch (item.getItemId()){
             case R.id.addBillMenuItem:
                 Intent newBillIntent = new Intent(ShowBillDetailsActivity.this,AddNewBillActivity.class);
+                newBillIntent.putExtra("custId",id);
                 startActivity(newBillIntent);
         }
         return super.onOptionsItemSelected(item);
