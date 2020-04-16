@@ -23,5 +23,6 @@
     <string name="clear">Clear</string>
     <string name="bill_id">Bill Id</string>
     <string name="date">Date</string>
+    <string name="general_text">General Text</string>
 
 </resources>
