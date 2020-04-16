@@ -165,8 +165,8 @@ public class AddNewBillActivity extends AppCompatActivity {
 
     public void onClickInternetRadioButton(View view){
         billTypeText = "Internet";
-        generalTView1.setHint("Provider Name");
-        generalTView2.setHint("Internet GB Used");
+        generalTView1.setHint("Internet GB used");
+        generalTView2.setHint("Provider Name");
         generalTView3.setVisibility(View.GONE);
         generalTView4.setVisibility(View.GONE);
         generalTView5.setVisibility(View.GONE);
@@ -202,11 +202,25 @@ public class AddNewBillActivity extends AppCompatActivity {
             internetGbText = generalTextView1.getText().toString();
             providerNameText = generalTextView2.getText().toString();
 
+            internet = new Internet(cusIdText,"Bill_"+billIDText,dateText,billTypeText,amountText,internetGbText,providerNameText);
+            myRef.push().setValue(internet);
+
         }else if(billTypeText.equals("Hydro")){
             agencyNameText = generalTextView1.getText().toString();
             unitsConsumedText = generalTextView2.getText().toString();
 
+            hydro = new Hydro(cusIdText,"Bill_"+billIDText,dateText,billTypeText,amountText,agencyNameText,unitsConsumedText);
+            myRef.push().setValue(hydro);
+
         }
+
+        Intent billDetailsIntent = new Intent(AddNewBillActivity.this,ShowBillDetailsActivity.class);
+        startActivity(billDetailsIntent);
+        finish();
+
+    }
+
+    public void saveAlert(){
 
     }
 }
