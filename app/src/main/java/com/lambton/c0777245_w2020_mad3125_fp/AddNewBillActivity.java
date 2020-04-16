@@ -214,7 +214,7 @@ public class AddNewBillActivity extends AppCompatActivity {
 
         }
 
-        Intent billDetailsIntent = new Intent(AddNewBillActivity.this,ShowBillDetailsActivity.class);
+        Intent billDetailsIntent = new Intent(AddNewBillActivity.this,CustomerListActivity.class);
         startActivity(billDetailsIntent);
         finish();
 
