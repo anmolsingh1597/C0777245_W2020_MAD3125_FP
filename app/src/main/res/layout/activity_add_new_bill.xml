@@ -8,22 +8,32 @@
     android:theme="@style/Theme.MaterialComponents"
     tools:context=".AddNewBillActivity">
 
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Bill Details"
-        android:textColor="@color/blue_grey_500"
-        android:textSize="@dimen/largeLabelSize"
-        app:layout_constraintBottom_toTopOf="@+id/idNumberTextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.471" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <com.google.android.material.textfield.TextInputLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Bill Details"
+            android:textAlignment="center"
+            android:textColor="@color/blue_grey_500"
+            android:textSize="@dimen/largeLabelSize"
+            app:layout_constraintBottom_toTopOf="@+id/idNumberTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.471" />
+
+        <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/custIdTextView"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
@@ -80,49 +90,49 @@
             android:textSize="12sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:onClick="dateImageButton"
-        app:layout_constraintEnd_toStartOf="@+id/dateTextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/billIdTextView"
-        app:srcCompat="@android:drawable/ic_menu_my_calendar" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/dateTextView"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:hint="@string/date"
-        android:textColorHint="@color/green_300"
-        app:boxStrokeColor="@color/green_300"
-        app:boxStrokeErrorColor="@color/Red"
-        app:hintTextColor="@color/green_300"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
-        app:layout_constraintTop_toBottomOf="@+id/billIdTextView"
-        app:startIconCheckable="true"
-        app:startIconTint="@color/green_400"
-        app:suffixTextColor="@color/Red">
-        ​
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/enterDateTextView"
-            android:layout_width="match_parent"
+        <ImageButton
+            android:id="@+id/imageButton"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-            android:textColor="@color/blue_grey_500"
-            android:textSize="12sp" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:onClick="dateImageButton"
+            app:layout_constraintEnd_toStartOf="@+id/dateTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/billIdTextView"
+            app:srcCompat="@android:drawable/ic_menu_my_calendar" />
 
-    <RadioGroup
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dateTextView"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:hint="@string/date"
+            android:textColorHint="@color/green_300"
+            app:boxStrokeColor="@color/green_300"
+            app:boxStrokeErrorColor="@color/Red"
+            app:hintTextColor="@color/green_300"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageButton"
+            app:layout_constraintTop_toBottomOf="@+id/billIdTextView"
+            app:startIconCheckable="true"
+            app:startIconTint="@color/green_400"
+            app:suffixTextColor="@color/Red">
+            ​
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/enterDateTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:textColor="@color/blue_grey_500"
+                android:textSize="12sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <RadioGroup
         android:id="@+id/billTypeRadioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -176,7 +186,6 @@
             android:id="@+id/enterGeneralTextView1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
             android:textColor="@color/blue_grey_500"
             android:textSize="12sp" />
@@ -205,7 +214,6 @@
             android:id="@+id/enterGeneralTextView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
             android:textColor="@color/blue_grey_500"
             android:textSize="12sp" />
@@ -234,7 +242,6 @@
             android:id="@+id/enterGeneralTextView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
             android:textColor="@color/blue_grey_500"
             android:textSize="12sp" />
@@ -263,7 +270,6 @@
             android:id="@+id/enterGeneralTextView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
             android:textColor="@color/blue_grey_500"
             android:textSize="12sp" />
@@ -292,10 +298,55 @@
             android:id="@+id/enterGeneralTextView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/blue_grey_500"
+            android:textSize="12sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/totalBillTextView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:hint="@string/total_bill"
+        android:textColorHint="@color/green_300"
+        app:boxStrokeColor="@color/green_300"
+        app:boxStrokeErrorColor="@color/Red"
+        app:hintTextColor="@color/green_300"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/generalTextView5"
+        app:suffixTextColor="@color/Red">
+        ​
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/enterTotalBillTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:inputType="number"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
             android:textColor="@color/blue_grey_500"
             android:textSize="12sp" />
     </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/billSaveButton"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/save"
+            android:textColor="@color/green_300"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+    </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

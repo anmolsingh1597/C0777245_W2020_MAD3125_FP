@@ -24,5 +24,6 @@
     <string name="bill_id">Bill Id</string>
     <string name="date">Date</string>
     <string name="general_text">General Text</string>
+    <string name="total_bill">Total Bill</string>
 
 </resources>
