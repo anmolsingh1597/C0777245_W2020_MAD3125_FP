@@ -122,4 +122,35 @@
             android:textSize="12sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <RadioGroup
+        android:id="@+id/billTypeRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:checkedButton="@id/mobileRadioButton"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateTextView">
+
+        <RadioButton
+            android:id="@+id/mobileRadioButton"
+            android:layout_width="95dp"
+            android:layout_height="match_parent"
+            android:text="Mobile" />
+
+        <RadioButton
+            android:id="@+id/internetRadioButton"
+            android:layout_width="95dp"
+            android:layout_height="match_parent"
+            android:text="Internet" />
+
+        <RadioButton
+            android:id="@+id/hydroRadioButton"
+            android:layout_width="89dp"
+            android:layout_height="match_parent"
+            android:text="Hydro" />
+    </RadioGroup>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
