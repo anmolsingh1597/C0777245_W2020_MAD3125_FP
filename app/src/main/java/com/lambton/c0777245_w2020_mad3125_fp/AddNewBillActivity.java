@@ -38,6 +38,7 @@ public class AddNewBillActivity extends AppCompatActivity {
             customerId.setText(intent.getStringExtra("custId"));
             customerId.setEnabled(false);
         }
+        date.setEnabled(false);
     }
 
     public void dateImageButton(View view){
@@ -56,7 +57,7 @@ public class AddNewBillActivity extends AppCompatActivity {
                                           int monthOfYear, int dayOfMonth) {
                         // set day of month , month and year value in the edit text
                         date.setText(getMonthForInt(monthOfYear) + " " + dayOfMonth+", "+year);
-                        date.setEnabled(false);
+
                     }
                 }, mYear, mMonth, mDay);
         datePickerDialog.show();
