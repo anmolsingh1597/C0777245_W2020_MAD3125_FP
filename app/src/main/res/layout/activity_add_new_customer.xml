@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/blue_grey_900"
     android:theme="@style/Theme.MaterialComponents"
-    tools:context=".AddNewCustomerActivity">
+    tools:context=".interfaces.AddNewCustomerActivity">
 
 
     <TextView

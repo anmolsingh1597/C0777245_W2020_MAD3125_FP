@@ -1,4 +1,4 @@
-package com.lambton.c0777245_w2020_mad3125_fp;
+package com.lambton.c0777245_w2020_mad3125_fp.interfaces;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,13 +15,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.lambton.c0777245_w2020_mad3125_fp.R;
 import com.lambton.c0777245_w2020_mad3125_fp.adapters.CustomersAdapter;
 import com.lambton.c0777245_w2020_mad3125_fp.models.Customer;
 import com.lambton.c0777245_w2020_mad3125_fp.models.GoogleUser;
@@ -115,7 +115,7 @@ public class CustomerListActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.newCustomerMenuItem:
-                Intent newCustomer = new Intent(CustomerListActivity.this,AddNewCustomerActivity.class);
+                Intent newCustomer = new Intent(CustomerListActivity.this, AddNewCustomerActivity.class);
                 startActivity(newCustomer);
                 break;
             case R.id.logoutMenuItem:
@@ -141,7 +141,7 @@ public class CustomerListActivity extends AppCompatActivity {
         builder.setPositiveButton("Logout", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent logout = new Intent(CustomerListActivity.this,LoginActivity.class);
+                Intent logout = new Intent(CustomerListActivity.this, LoginActivity.class);
                 startActivity(logout);
                 finish();
                 dialog.dismiss();

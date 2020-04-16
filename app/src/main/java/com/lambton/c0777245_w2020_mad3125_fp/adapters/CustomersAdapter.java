@@ -6,13 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lambton.c0777245_w2020_mad3125_fp.R;
-import com.lambton.c0777245_w2020_mad3125_fp.ShowBillDetailsActivity;
+import com.lambton.c0777245_w2020_mad3125_fp.interfaces.ShowBillDetailsActivity;
 import com.lambton.c0777245_w2020_mad3125_fp.models.Customer;
 
 import java.io.Serializable;

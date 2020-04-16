@@ -1,30 +1,26 @@
-package com.lambton.c0777245_w2020_mad3125_fp;
+package com.lambton.c0777245_w2020_mad3125_fp.interfaces;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.InputType;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.lambton.c0777245_w2020_mad3125_fp.R;
 import com.lambton.c0777245_w2020_mad3125_fp.models.Hydro;
 import com.lambton.c0777245_w2020_mad3125_fp.models.Internet;
 import com.lambton.c0777245_w2020_mad3125_fp.models.Mobile;
 
-import java.text.DateFormat;
 import java.text.DateFormatSymbols;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 public class AddNewBillActivity extends AppCompatActivity {
 
@@ -214,7 +210,7 @@ public class AddNewBillActivity extends AppCompatActivity {
 
         }
 
-        Intent billDetailsIntent = new Intent(AddNewBillActivity.this,CustomerListActivity.class);
+        Intent billDetailsIntent = new Intent(AddNewBillActivity.this, CustomerListActivity.class);
         startActivity(billDetailsIntent);
         finish();
 

@@ -1,4 +1,4 @@
-package com.lambton.c0777245_w2020_mad3125_fp;
+package com.lambton.c0777245_w2020_mad3125_fp.interfaces;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,15 +11,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.lambton.c0777245_w2020_mad3125_fp.R;
 import com.lambton.c0777245_w2020_mad3125_fp.adapters.HydroAdapter;
 import com.lambton.c0777245_w2020_mad3125_fp.adapters.InternetAdapter;
 import com.lambton.c0777245_w2020_mad3125_fp.adapters.MobileAdapter;
@@ -174,7 +173,7 @@ public void populateBills(){
 
         switch (item.getItemId()){
             case R.id.addBillMenuItem:
-                Intent newBillIntent = new Intent(ShowBillDetailsActivity.this,AddNewBillActivity.class);
+                Intent newBillIntent = new Intent(ShowBillDetailsActivity.this, AddNewBillActivity.class);
                 newBillIntent.putExtra("custId",id);
                 startActivity(newBillIntent);
         }

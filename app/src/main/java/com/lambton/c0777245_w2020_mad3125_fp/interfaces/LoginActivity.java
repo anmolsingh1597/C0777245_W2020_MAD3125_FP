@@ -1,4 +1,4 @@
-package com.lambton.c0777245_w2020_mad3125_fp;
+package com.lambton.c0777245_w2020_mad3125_fp.interfaces;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,10 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -18,6 +16,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.lambton.c0777245_w2020_mad3125_fp.R;
 import com.lambton.c0777245_w2020_mad3125_fp.models.GoogleUser;
 
 import java.io.Serializable;
@@ -121,7 +120,7 @@ public class LoginActivity extends AppCompatActivity {
     public void customerListButtonOnClick(View view){
         Bundle googleUserBundle = new Bundle();
         googleUserBundle.putSerializable("googleUserBundle",(Serializable)googleUser);
-        Intent customerListIntent = new Intent(LoginActivity.this,CustomerListActivity.class);
+        Intent customerListIntent = new Intent(LoginActivity.this, CustomerListActivity.class);
         customerListIntent.putExtra("googleUserExtra",googleUserBundle);
         startActivity(customerListIntent);
     }
