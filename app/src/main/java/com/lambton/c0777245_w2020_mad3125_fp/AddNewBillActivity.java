@@ -14,6 +14,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.lambton.c0777245_w2020_mad3125_fp.models.Hydro;
+import com.lambton.c0777245_w2020_mad3125_fp.models.Internet;
+import com.lambton.c0777245_w2020_mad3125_fp.models.Mobile;
 
 import java.text.DateFormat;
 import java.text.DateFormatSymbols;
@@ -58,7 +63,12 @@ public class AddNewBillActivity extends AppCompatActivity {
     String agencyNameText;
     String unitsConsumedText;
 
+    Mobile mobile;
+    Internet internet;
+    Hydro hydro;
 
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("Bills");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,8 +108,8 @@ public class AddNewBillActivity extends AppCompatActivity {
         }
         date.setEnabled(false);
         generalTView1.setHint("Mobile Manufacturer");
-        generalTView2.setHint("Mobile Number");
-        generalTView3.setHint("Plan Name");
+        generalTView2.setHint("Plan Name");
+        generalTView3.setHint("Mobile Number");
         generalTView4.setHint("Internet GB used");
         generalTView5.setHint("Minutes Consumed");
 
@@ -144,8 +154,8 @@ public class AddNewBillActivity extends AppCompatActivity {
     public void onClickMobileRadioButton(View view){
         billTypeText = "Mobile";
         generalTView1.setHint("Mobile Manufacturer");
-        generalTView2.setHint("Mobile Number");
-        generalTView3.setHint("Plan Name");
+        generalTView2.setHint("Plan Name");
+        generalTView3.setHint("Mobile Number");
         generalTView4.setHint("Internet GB used");
         generalTView5.setHint("Minutes Consumed");
         generalTView3.setVisibility(View.VISIBLE);
@@ -178,11 +188,24 @@ public class AddNewBillActivity extends AppCompatActivity {
         amountText = totalBillAmountTextView.getText().toString();
 
         if(billTypeText.equals("Mobile")){
-            Toast.makeText(AddNewBillActivity.this, cusIdText+billIDText+dateText+" "+billTypeText+" "+amountText, Toast.LENGTH_SHORT).show();
+            mobileManufacturerText = generalTextView1.getText().toString();
+            planNameText = generalTextView2.getText().toString();
+            mobileNumberText = generalTextView3.getText().toString();
+            mobileInternetGbText = generalTextView4.getText().toString();
+            minutesText = generalTextView5.getText().toString();
+
+            mobile = new Mobile(cusIdText,"Bill_"+billIDText,dateText,billTypeText,amountText,mobileManufacturerText,planNameText,mobileNumberText,mobileInternetGbText
+            ,minutesText);
+            myRef.push().setValue(mobile);
+
         } else if(billTypeText.equals("Internet")){
-            Toast.makeText(AddNewBillActivity.this, cusIdText+billIDText+dateText+billTypeText+amountText, Toast.LENGTH_SHORT).show();
+            internetGbText = generalTextView1.getText().toString();
+            providerNameText = generalTextView2.getText().toString();
+
         }else if(billTypeText.equals("Hydro")){
-            Toast.makeText(AddNewBillActivity.this, cusIdText+billIDText+dateText+billTypeText+amountText, Toast.LENGTH_SHORT).show();
+            agencyNameText = generalTextView1.getText().toString();
+            unitsConsumedText = generalTextView2.getText().toString();
+
         }
 
     }
