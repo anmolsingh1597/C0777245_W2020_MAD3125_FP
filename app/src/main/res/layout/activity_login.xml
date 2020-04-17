@@ -78,4 +78,18 @@
         app:layout_constraintTop_toBottomOf="@+id/button"
         app:layout_constraintVertical_bias="0.525" />
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="153dp"
+        android:layout_height="153dp"
+        android:layout_marginStart="129dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="129dp"
+        android:layout_marginBottom="37dp"
+        app:layout_constraintBottom_toTopOf="@+id/statusTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar"
+        app:srcCompat="@mipmap/logo" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
