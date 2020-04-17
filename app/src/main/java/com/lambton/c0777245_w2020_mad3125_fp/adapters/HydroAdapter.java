@@ -11,11 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.lambton.c0777245_w2020_mad3125_fp.R;
 import com.lambton.c0777245_w2020_mad3125_fp.models.Hydro;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class HydroAdapter extends RecyclerView.Adapter<HydroAdapter.HydroViewHolder> {
 
     private ArrayList<Hydro> hydroArrayList;
+    NumberFormat defaultFormat = NumberFormat.getCurrencyInstance();
 
     public HydroAdapter(ArrayList<Hydro> hydroArrayList) {
         this.hydroArrayList = hydroArrayList;
@@ -41,7 +43,7 @@ public class HydroAdapter extends RecyclerView.Adapter<HydroAdapter.HydroViewHol
         holder.type.setText(hydroObject.getBillType());
         holder.agencyName.setText(hydroObject.getAgencyName());
         holder.unitsConsumed.setText(hydroObject.getUnitsConsumed() + " Units");
-        holder.amount.setText("$" + hydroObject.getBillAmount());
+        holder.amount.setText(defaultFormat.format(Double.parseDouble(hydroObject.getBillAmount())));
     }
 
     @Override
