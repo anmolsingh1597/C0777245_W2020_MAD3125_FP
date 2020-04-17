@@ -11,11 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.lambton.c0777245_w2020_mad3125_fp.R;
 import com.lambton.c0777245_w2020_mad3125_fp.models.Internet;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class InternetAdapter extends RecyclerView.Adapter<InternetAdapter.InternetViewHolder> {
 
     private ArrayList<Internet> internetArrayList;
+
+    NumberFormat defaultFormat = NumberFormat.getCurrencyInstance();
 
     public InternetAdapter(ArrayList<Internet> internetArrayList) {
         this.internetArrayList = internetArrayList;
@@ -34,13 +37,13 @@ public class InternetAdapter extends RecyclerView.Adapter<InternetAdapter.Intern
     @Override
     public void onBindViewHolder(@NonNull InternetAdapter.InternetViewHolder holder, int position) {
         Internet internetObject = this.internetArrayList.get(position);
-        holder.cusId.setText("Customer Id: " + internetObject.getCustId());
-        holder.id.setText("Bill Id: " + internetObject.getId());
-        holder.date.setText("Date: " + internetObject.getDate());
-        holder.type.setText("Bill Type: " + internetObject.getBillType());
-        holder.internetGb.setText("Internet GB used: " + internetObject.getInternetGb() + " GB");
-        holder.providerName.setText("Provider Name: " + internetObject.getProviderName());
-        holder.amount.setText("Amount: $" + internetObject.getBillAmount());
+        holder.cusId.setText(internetObject.getCustId());
+        holder.id.setText(internetObject.getId());
+        holder.date.setText(internetObject.getDate());
+        holder.type.setText(internetObject.getBillType());
+        holder.internetGb.setText(internetObject.getInternetGb() + " GB");
+        holder.providerName.setText(internetObject.getProviderName());
+        holder.amount.setText(defaultFormat.format(Double.parseDouble(internetObject.getBillAmount())));
 
     }
 
