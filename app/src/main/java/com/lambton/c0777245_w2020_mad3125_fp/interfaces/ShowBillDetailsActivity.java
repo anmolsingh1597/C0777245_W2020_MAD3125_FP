@@ -27,6 +27,7 @@ import com.lambton.c0777245_w2020_mad3125_fp.models.Hydro;
 import com.lambton.c0777245_w2020_mad3125_fp.models.Internet;
 import com.lambton.c0777245_w2020_mad3125_fp.models.Mobile;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -52,6 +53,7 @@ public class ShowBillDetailsActivity extends AppCompatActivity {
     static String name;
     String id;
     Double totalAmount = 0.0;
+    NumberFormat defaultFormat = NumberFormat.getCurrencyInstance();
 
     RecyclerView.LayoutManager thisLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,
             false);
@@ -144,7 +146,7 @@ public void populateBills(){
             }
             }
             if (totalAmount>0.0){
-            totalAmountTextView.setText("Total Bill: $" + String.valueOf(totalAmount));
+            totalAmountTextView.setText("Total Bill: " + defaultFormat.format(totalAmount));
             totalAmountTextView.setTextColor(Color.parseColor("#66BB6A"));
             }else {
                 totalAmountTextView.setText("User doesn't have any pending Bill ");
