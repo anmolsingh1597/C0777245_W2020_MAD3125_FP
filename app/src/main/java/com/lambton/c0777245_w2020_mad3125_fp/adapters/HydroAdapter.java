@@ -35,13 +35,13 @@ public class HydroAdapter extends RecyclerView.Adapter<HydroAdapter.HydroViewHol
     @Override
     public void onBindViewHolder(@NonNull HydroAdapter.HydroViewHolder holder, int position) {
         Hydro hydroObject = this.hydroArrayList.get(position);
-        holder.cusId.setText("Customer Id: " + hydroObject.getCustId());
-        holder.id.setText("Bill Id: " + hydroObject.getId());
-        holder.date.setText("Date: " + hydroObject.getDate());
-        holder.type.setText("Bill Type: " + hydroObject.getBillType());
-        holder.agencyName.setText("Agency: " + hydroObject.getAgencyName());
-        holder.unitsConsumed.setText("Units: " + hydroObject.getUnitsConsumed());
-        holder.amount.setText("Amount: $" + hydroObject.getBillAmount());
+        holder.cusId.setText(hydroObject.getCustId());
+        holder.id.setText(hydroObject.getId());
+        holder.date.setText(hydroObject.getDate());
+        holder.type.setText(hydroObject.getBillType());
+        holder.agencyName.setText(hydroObject.getAgencyName());
+        holder.unitsConsumed.setText(hydroObject.getUnitsConsumed() + " Units");
+        holder.amount.setText("$" + hydroObject.getBillAmount());
     }
 
     @Override
