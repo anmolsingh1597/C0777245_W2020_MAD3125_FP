@@ -90,6 +90,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBar"
-        app:srcCompat="@mipmap/logo" />
+        app:srcCompat="@mipmap/logo_percent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
