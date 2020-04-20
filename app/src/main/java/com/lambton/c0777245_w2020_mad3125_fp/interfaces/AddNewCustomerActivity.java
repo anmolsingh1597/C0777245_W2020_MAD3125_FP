@@ -64,7 +64,7 @@ public class AddNewCustomerActivity extends AppCompatActivity {
               lastNameText.setError("Enter Last Name");
           }else if(!isValidEmailId(email.trim())){
               emailText.setError("Invalid Email");
-          }else if(mobile.equals("") && mobile.length()<10){
+          }else if(mobile.length()<10){
               mobileText.setError("Invalid Mobile Number");
           }
           else {
