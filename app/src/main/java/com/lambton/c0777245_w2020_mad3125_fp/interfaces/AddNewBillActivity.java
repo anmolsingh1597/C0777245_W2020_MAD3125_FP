@@ -38,7 +38,7 @@ public class AddNewBillActivity extends AppCompatActivity {
     private TextInputLayout generalTView3;
     private TextInputLayout generalTView4;
     private TextInputLayout generalTView5;
-    
+
     String cusIdText;
     String billIDText;
     String dateText;
