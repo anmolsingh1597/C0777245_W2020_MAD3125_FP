@@ -66,7 +66,7 @@ public class CustomerListActivity extends AppCompatActivity {
         if (intent.hasExtra("googleUserExtra")){
             fetchedBundle = intent.getBundleExtra("googleUserExtra");
             fetchedUser = (GoogleUser)fetchedBundle.getSerializable("googleUserBundle");
-            actionBarTitle = fetchedUser.getFullName();
+            actionBarTitle = fetchedUser.getFirstName()+": "+fetchedUser.getEmail();
         }
 
 
