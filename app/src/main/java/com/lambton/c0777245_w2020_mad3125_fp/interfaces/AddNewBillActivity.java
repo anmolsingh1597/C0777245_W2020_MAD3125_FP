@@ -28,10 +28,6 @@ public class AddNewBillActivity extends AppCompatActivity {
     private TextView billId;
     private TextView date;
     private RadioGroup billTypeRadioGroup;
-//    private RadioButton mobileRadioButton;
-//    private RadioButton internetRadioButton;
-//    private RadioButton hydroRadioButton;
-    private RadioButton billTypeRadioButton;
     private TextView generalTextView1;
     private TextView generalTextView2;
     private TextView generalTextView3;
@@ -42,8 +38,7 @@ public class AddNewBillActivity extends AppCompatActivity {
     private TextInputLayout generalTView3;
     private TextInputLayout generalTView4;
     private TextInputLayout generalTView5;
-    private TextView totalBillAmountTextView;
-
+    
     String cusIdText;
     String billIDText;
     String dateText;
@@ -79,9 +74,6 @@ public class AddNewBillActivity extends AppCompatActivity {
         billId = findViewById(R.id.enterBillIdTextView);
         date = findViewById(R.id.enterDateTextView);
         billTypeRadioGroup = findViewById(R.id.billTypeRadioGroup);
-//        mobileRadioButton = findViewById(R.id.mobileRadioButton);
-//        internetRadioButton = findViewById(R.id.internetRadioButton);
-//        hydroRadioButton = findViewById(R.id.hydroRadioButton);
         generalTextView1 = findViewById(R.id.enterGeneralTextView1);
         generalTextView2 = findViewById(R.id.enterGeneralTextView2);
         generalTextView3 = findViewById(R.id.enterGeneralTextView3);
@@ -92,9 +84,6 @@ public class AddNewBillActivity extends AppCompatActivity {
         generalTView3 = findViewById(R.id.generalTextView3);
         generalTView4 = findViewById(R.id.generalTextView4);
         generalTView5 = findViewById(R.id.generalTextView5);
-
-
-        totalBillAmountTextView = findViewById(R.id.enterTotalBillTextView);
 
         Intent intent = getIntent();
         if(intent.hasExtra("custId")){
@@ -181,7 +170,6 @@ public class AddNewBillActivity extends AppCompatActivity {
 
         billIDText = billId.getText().toString();
 
-        amountText = totalBillAmountTextView.getText().toString();
 
         if(billTypeText.equals("Mobile")){
             mobileManufacturerText = generalTextView1.getText().toString();
@@ -189,6 +177,8 @@ public class AddNewBillActivity extends AppCompatActivity {
             mobileNumberText = generalTextView3.getText().toString();
             mobileInternetGbText = generalTextView4.getText().toString();
             minutesText = generalTextView5.getText().toString();
+
+            amountText = String.valueOf((Double.parseDouble(mobileInternetGbText) * 2.03) + (Double.parseDouble(minutesText) * 0.15));
 
             mobile = new Mobile(cusIdText,"Bill_"+billIDText,dateText,billTypeText,amountText,mobileManufacturerText,planNameText,mobileNumberText,mobileInternetGbText
             ,minutesText);
@@ -198,12 +188,16 @@ public class AddNewBillActivity extends AppCompatActivity {
             internetGbText = generalTextView1.getText().toString();
             providerNameText = generalTextView2.getText().toString();
 
+            amountText = String.valueOf((Double.parseDouble(internetGbText) * 1.77));
+
             internet = new Internet(cusIdText,"Bill_"+billIDText,dateText,billTypeText,amountText,internetGbText,providerNameText);
             myRef.push().setValue(internet);
 
         }else if(billTypeText.equals("Hydro")){
             agencyNameText = generalTextView1.getText().toString();
             unitsConsumedText = generalTextView2.getText().toString();
+
+            amountText = String.valueOf((Double.parseDouble(unitsConsumedText) * 0.89));
 
             hydro = new Hydro(cusIdText,"Bill_"+billIDText,dateText,billTypeText,amountText,agencyNameText,unitsConsumedText);
             myRef.push().setValue(hydro);
